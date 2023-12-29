@@ -1,87 +1,171 @@
-.. GPT Index documentation master file, created by
-   sphinx-quickstart on Sun Dec 11 14:30:34 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to LlamaIndex 🦙 !
+##########################
 
-Welcome to GPT Index!
-=====================================
+LlamaIndex is a data framework for `LLM <https://en.wikipedia.org/wiki/Large_language_model>`_-based applications to ingest, structure, and access private or domain-specific data. It's available in Python (these docs) and `Typescript <https://ts.llamaindex.ai/>`_.
 
-GPT Index is a project consisting of a set of data structures designed to make it easier to 
-use large external knowledge bases with LLMs.
+🚀 Why LlamaIndex?
+******************
 
-- Github: https://github.com/jerryjliu/gpt_index
-- PyPi: https://pypi.org/project/gpt-index/
-- Twitter: https://twitter.com/gpt_index
+LLMs offer a natural language interface between humans and data. Widely available models come pre-trained on huge amounts of publicly available data like Wikipedia, mailing lists, textbooks, source code and more.
+
+However, while LLMs are trained on a great deal of data, they are not trained on **your** data, which may be private or specific to the problem you're trying to solve. It's behind APIs, in SQL databases, or trapped in PDFs and slide decks.
+
+LlamaIndex solves this problem by connecting to these data sources and adding your data to the data LLMs already have. This is often called Retrieval-Augmented Generation (RAG). RAG enables you to use LLMs to query your data, transform it, and generate new insights. You can ask questions about your data, create chatbots, build semi-autonomous agents, and more. To learn more, check out our Use Cases on the left.
+
+🦙 How can LlamaIndex help?
+***************************
+
+LlamaIndex provides the following tools:
+
+- **Data connectors** ingest your existing data from their native source and format. These could be APIs, PDFs, SQL, and (much) more.
+- **Data indexes** structure your data in intermediate representations that are easy and performant for LLMs to consume.
+- **Engines** provide natural language access to your data. For example:
+  - Query engines are powerful retrieval interfaces for knowledge-augmented output.
+  - Chat engines are conversational interfaces for multi-message, "back and forth" interactions with your data.
+- **Data agents** are LLM-powered knowledge workers augmented by tools, from simple helper functions to API integrations and more.
+- **Application integrations** tie LlamaIndex back into the rest of your ecosystem. This could be LangChain, Flask, Docker, ChatGPT, or… anything else!
+
+👨‍👩‍👧‍👦 Who is LlamaIndex for?
+*******************************************
+
+LlamaIndex provides tools for beginners, advanced users, and everyone in between.
+
+Our high-level API allows beginner users to use LlamaIndex to ingest and query their data in 5 lines of code.
+
+For more complex applications, our lower-level APIs allow advanced users to customize and extend any module—data connectors, indices, retrievers, query engines, reranking modules—to fit their needs.
+
+Getting Started
+****************
+
+To install the library:
+
+``pip install llama-index``
+
+We recommend starting at `how to read these docs <./getting_started/reading.html>`_, which will point you to the right place based on your experience level.
+
+🗺️ Ecosystem
+************
+
+To download or contribute, find LlamaIndex on:
+
+- Github: https://github.com/jerryjliu/llama_index
+- PyPi:
+
+  - LlamaIndex: https://pypi.org/project/llama-index/.
+  - GPT Index (duplicate): https://pypi.org/project/gpt-index/.
+
+- NPM (Typescript/Javascript):
+   - Github: https://github.com/run-llama/LlamaIndexTS
+   - Docs: https://ts.llamaindex.ai/
+   - LlamaIndex.TS: https://www.npmjs.com/package/llamaindex
+
+Community
+---------
+Need help? Have a feature suggestion? Join the LlamaIndex community:
+
+- Twitter: https://twitter.com/llama_index
 - Discord https://discord.gg/dGcwcsnxhU
 
+Associated projects
+-------------------
 
-🚀 Overview
------------
-
-Context
-^^^^^^^
-- LLMs are a phenomenonal piece of technology for knowledge generation and reasoning.
-- A big limitation of LLMs is context size (e.g. Davinci's limit is 4096 tokens. Large, but not infinite).
-- The ability to feed "knowledge" to LLMs is restricted to this limited prompt size and model weights.
-
-Proposed Solution
-^^^^^^^^^^^^^^^^^
-That's where the **GPT Index** comes in. GPT Index is a simple, flexible interface between your external data and LLMs. It resolves the following pain points:
-
-- Provides simple data structures to resolve prompt size limitations.
-- Offers data connectors to your external data sources.
-- Offers you a comprehensive toolset trading off cost and performance.
-
-At the core of GPT Index is a **data structure**. Instead of relying on world knowledge encoded in the model weights, a GPT Index data structure does the following:
-
-- Uses a pre-trained LLM primarily for *reasoning*/*summarization* instead of prior knowledge.
-- Takes as input a large corpus of text data and build a structured index over it (using an LLM or heuristics).
-- Allow users to *query* the index by passing in an LLM prompt, and obtaining a response.
-
+- 🏡 LlamaHub: https://llamahub.ai | A large (and growing!) collection of custom data connectors
+- 🧪 LlamaLab: https://github.com/run-llama/llama-lab | Ambitious projects built on top of LlamaIndex
 
 .. toctree::
    :maxdepth: 1
    :caption: Getting Started
+   :hidden:
 
    getting_started/installation.md
+   getting_started/reading.md
    getting_started/starter_example.md
+   getting_started/concepts.md
+   getting_started/customization.rst
+   getting_started/discover_llamaindex.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Use Cases
+   :hidden:
+
+   use_cases/q_and_a.md
+   use_cases/chatbots.md
+   use_cases/agents.md
+   use_cases/extraction.md
+   use_cases/multimodal.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Understanding
+   :hidden:
+
+   understanding/understanding.md
+   understanding/using_llms/using_llms.md
+   understanding/loading/loading.md
+   understanding/indexing/indexing.md
+   understanding/storing/storing.md
+   understanding/querying/querying.md
+   understanding/putting_it_all_together/putting_it_all_together.md
+   understanding/tracing_and_debugging/tracing_and_debugging.md
+   understanding/evaluating/evaluating.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Optimizing
+   :hidden:
+
+   optimizing/basic_strategies/basic_strategies.md
+   optimizing/advanced_retrieval/advanced_retrieval.md
+   optimizing/agentic_strategies/agentic_strategies.md
+   optimizing/evaluation/evaluation.md
+   optimizing/fine-tuning/fine-tuning.md
+   optimizing/production_rag.md
+   optimizing/building_rag_from_scratch.md
+.. toctree::
+   :maxdepth: 2
+   :caption: Module Guides
+   :hidden:
+
+   module_guides/models/models.md
+   module_guides/models/prompts.md
+   module_guides/loading/loading.md
+   module_guides/indexing/indexing.md
+   module_guides/storing/storing.md
+   module_guides/querying/querying.md
+   module_guides/observability/observability.md
+   module_guides/evaluating/root.md
+   module_guides/supporting_modules/supporting_modules.md
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Guides
+   :caption: API Reference
+   :hidden:
 
-   guides/primer.md 
-   guides/usage_pattern.md
-   guides/use_cases.md
-   guides/index_guide.md
-
+   api_reference/index.rst
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Technical How To
+   :maxdepth: 2
+   :caption: Community
+   :hidden:
 
-   how_to/data_connectors.md
-   how_to/composability.md
-   how_to/update.md
-   how_to/cost_analysis.md
-   how_to/embeddings.md
-   how_to/vector_stores.md
-   how_to/custom_prompts.md
-   how_to/custom_llms.md
-
+   community/integrations.md
+   community/frequently_asked_questions.md
+   community/full_stack_projects.md
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Reference
+   :maxdepth: 2
+   :caption: Contributing
+   :hidden:
 
-   reference/indices.rst
-   reference/query.rst
-   reference/readers.rst
-   reference/prompts.rst
-   reference/llm_predictor.rst
-   reference/prompt_helper.rst
-   reference/embeddings.rst
-   reference/struct_store.rst
-   reference/response.rst
-   reference/example_notebooks.rst
+   contributing/contributing.rst
+   contributing/documentation.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Changes
+   :hidden:
+
+   changes/changelog.rst
+   changes/deprecated_terms.md
